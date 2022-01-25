@@ -72,20 +72,7 @@ const Operaciones=()=>{
             background:'red'
 
         },
-        botonn:{
-            width:'35vw !important',
-            margin:'5px',
-            height:100,
-            fontSize:'12px !important',
-            "&:hover":{
-                background:'#ccc !important',
-                textShadow:'1px 1px 1px black !important'
-            },
-            "&:active":{
-                background:'white !important',
-                textShadow:'2px 2px 2px black !important'
-            }
-        },
+        
 
     });
    
@@ -124,7 +111,7 @@ const Operaciones=()=>{
              <div className={classes.subitem} style={{background:'black',border:'2px solid white',width:'35vw',margin:'auto'}}><input id='monto' style={{height:'40px ',width:'25vw'}}name={impo} placeholder={data.data[0].monto}  onChange={(i)=>Importe(i)} ></input></div>
              <div className={classes.subitem} style={{background:'black',border:'2px solid white',width:'35vw',height:'4vw',margin:'auto'}}><p>{(data.data[0].fecha).substring(0,10)}</p></div>
              {data.data[0].tipo==="ingresos"?<div style={{background:'black',border:'2px solid white',width:'35vw',height:'4vw',margin:'auto',color:"limegreen"}}><p>{data.data[0].tipo}</p></div>:<div style={{background:'black',border:'2px solid white',width:'35vw',height:'4vw',margin:'auto',color:"tomato"}}><p>{data.data[0].tipo}</p></div>}
-              <div style={{width:'50vw',margin:'auto',height:'7vw'}}><button className={classes.botonn} style={{ background:'black',display:'inline-block'}} id={data.data[0].id} onClick={(id)=>Quitar(id)}>X</button><button className={classes.botonn} style={{display:'inline-block'}} accessKey={data.data[0].id} id={data.data[0].monto} onClick={(id)=>modificar(id)}>Modificar</button></div>
+              <div style={{width:'50vw',margin:'auto',height:'7vw'}}><button className={classes.boton2} style={{display:'inline-block',background:'black'}} id={data.data[0].id} onClick={(id)=>Quitar(id)}>X</button><button style={{display:'inline-block'}} accessKey={data.data[0].id} id={data.data[0].monto} onClick={(id)=>modificar(id)}>Modificar</button></div>
 
               
              </div>)
@@ -217,8 +204,8 @@ const Operaciones=()=>{
                !cambio?datos&&datos.map(d => (
                   
                     
-                        <div key={d.id}  className={classes.item}><div className={classes.subitem} style={{height:'4vw'}}><p>{d.id} {d.concepto}</p></div><div className={classes.subitem} style={{border:'2px solid white',width:'16vw',height:'4vw',textAlign:'center'}}><p >{d.monto}</p></div><div className={classes.subitem} style={{border:'2px solid white',width:'16vw',height:'4vw',textAlign:'center'}}><p>{(d.fecha).substring(0,10)}</p></div>
-                        {d.tipo==="ingresos"?<div className={classes.subitem} style={{border:'2px solid white',width:'16vw',height:'4vw',textAlign:'center',color:"limegreen"}}><p>{d.tipo}</p></div>:<div className={classes.subitem} style={{border:'2px solid white',width:'16vw',height:'4vw',textAlign:'center',color:"tomato"}}><p>{d.tipo}</p></div>}
+                        <div key={d.id}  className={classes.item}><div className={classes.subitem} style={{height:'4vw'}}><p>{d.id} {d.concepto}</p></div><div className={classes.subitem} style={{width:'16vw',height:'4vw',textAlign:'center'}}><p >{d.monto}</p></div><div className={classes.subitem} style={{width:'16vw',height:'4vw',textAlign:'center'}}><p>{(d.fecha).substring(0,10)}</p></div>
+                        {d.tipo==="ingresos"?<div className={classes.subitem} style={{width:'16vw',height:'4vw',textAlign:'center',color:"limegreen"}}><p>{d.tipo}</p></div>:<div className={classes.subitem} style={{width:'16vw',height:'4vw',textAlign:'center',color:"tomato"}}><p>{d.tipo}</p></div>}
                         <button id={d.id} onClick={(id)=>editar(id)} className={classes.boton}>Editar</button><button id={d.id} onClick={(id)=>eliminar(id)} className={classes.boton1}>Eliminar</button>
                         </div>
                     )
